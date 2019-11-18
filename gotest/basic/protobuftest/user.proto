@@ -1,0 +1,14 @@
+//协议
+syntax="proto2";
+
+package protobuftest;
+
+message Person{
+    //数字只是标识号
+    required uint32 id=1;
+
+    required string name=2;
+
+    required bool isVip=3;
+
+}
