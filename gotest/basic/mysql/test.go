@@ -23,6 +23,7 @@ func main() {
 
 }
 
+//fdfdjl
 func DBQuery(db *sql.DB, sqlStr string, arg []interface{}, handler DBHandler) error {
 	var err error
 
@@ -46,6 +47,7 @@ func deal(rows *sql.Rows, handler DBHandler) error {
 	return handler.HandlerResults(rows)
 }
 
+//fdfdf
 type UserDao struct {
 }
 

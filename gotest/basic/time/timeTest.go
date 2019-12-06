@@ -14,15 +14,21 @@ func main() {
 	ti :=time.Unix(1553673548,0).Unix()
 	fmt.Println(ti)*/
 
-	now := time.Now().Unix()
 	/*tt,_:=time.Unix(now,0).MarshalJSON()
 	fmt.Println("json",string(tt))
 
 	tx ,_:= time.Unix(now,0).MarshalText()
 
 	fmt.Println(string(tx[0:10]))*/
-	fmt.Println(FormatToDate(time.Unix(now, 0)))
+
+	fmt.Println(TimestampToYMD(-1521112212))
 }
 func FormatToDate(timeObj time.Time) string {
 	return timeObj.Format("2006-01-02")
+}
+
+// 时间戳转日期 20060102
+func TimestampToYMD(t int64) string {
+	tm := time.Unix(t, 0)
+	return tm.Format("20060102")
 }
