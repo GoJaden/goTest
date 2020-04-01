@@ -2,7 +2,6 @@ package main
 
 import (
 	"common-lib/nsq"
-	"time"
 )
 
 func sendMessage(publisher *nsq.Producer) {
@@ -23,13 +22,9 @@ func sendMessage1(publisher *nsq.Producer) {
 func main() {
 	url := "192.168.1.204:4150"
 	publisher := nsq.NewProducer(url)
-	for i := 0; i < 100; i++ {
-		sendMessage(publisher)
-	}
 
-	for i := 0; i < 100; i++ {
-		sendMessage1(publisher)
-	}
-	time.Sleep(time.Second * 5)
+	sendMessage(publisher)
+	sendMessage1(publisher)
+
 	publisher.Stop()
 }

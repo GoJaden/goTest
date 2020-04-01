@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"time"
 )
 
 type Per struct {
@@ -12,10 +13,15 @@ type Per struct {
 func main() {
 	r := gin.Default()
 	r.GET("/test", func(c *gin.Context) {
-		p := new(Per)
-		V := c.BindQuery(p)
-		fmt.Println(V, p)
-		c.JSON(200, nil)
+
+		fmt.Println("---")
+
+		go func() {
+
+			time.Sleep(time.Second*5)
+			fmt.Println("++++")
+		}()
+		c.JSON(200, "hello")
 	})
 	r.Run()
 }

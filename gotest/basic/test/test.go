@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"strings"
 )
 
 func printAll(vals []interface{}) { //1
@@ -11,11 +11,41 @@ func printAll(vals []interface{}) { //1
 	}
 }
 
+type S struct {
+	A string
+}
+
 func main() {
 
-	/*names := []string{"stanley", "david", "oscar"}
-	printAll(names)*/
+	go func() {
+		fmt.Print("t1")
+		go func() {
+			fmt.Print("t2")
+			go func() {
+				fmt.Print("t3")
+			}()
+		}()
+	}()
 
-	fmt.Println("hello")
-	time.Sleep(time.Second * 10)
+	var s float32 = 3.1
+
+	fmt.Print(s)
+
+	str := "abc" + "123"
+	fmt.Println(str)
+
+	fmt.Println(ParseExaminers("2"))
+}
+func ParseExaminers(examiners string) []string {
+	if strings.Contains(examiners, ",") {
+		return strings.Split(examiners, ",")
+	}
+	return []string{examiners}
+}
+
+type T struct {
+}
+
+func (t T) test() {
+
 }

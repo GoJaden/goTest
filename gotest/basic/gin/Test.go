@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"time"
 )
 
 type Data struct {
@@ -15,7 +16,11 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/demo", func(context *gin.Context) {
+		go func() {
+			time.Sleep(time.Second*5)
+			fmt.Println("我睡好了，开始执行任务")
 
+		}()
 		fmt.Println("12323")
 	})
 

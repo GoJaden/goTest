@@ -11,6 +11,10 @@ type User struct {
 	age  int    `json:"age"`
 }
 
+type User2 struct {
+	name string `json:"name"`
+	age  int    `json:"age"`
+}
 func main() {
 
 	config := redis.Config{Address: "192.168.1.204:6379",
@@ -18,8 +22,23 @@ func main() {
 		MaxActive:   50,
 		IdleTimeout: time.Duration(60) * time.Second}
 	client := redis.New(config)
-	val, err := client.Get("fdfd;ljkdjkfoewj").Result()
-	fmt.Println(val, err)
+	//val, err := client.Get("fdfd;ljkdjkfoewj").Result()
+
+	client.Set("test111","1122",0)
+
+	client.HSet("name","jiang","123")
+	client.HSet("name","jiang","111")
+	client.HSet("name","jiang","222")
+
+	result ,err := client.HGet("name","jiang").Result()
+	if err != nil{
+		fmt.Println(err)
+	}
+	fmt.Println(result)
+	/*client.Set("test111","1111",0)
+	client.Set("test111","2222",0)*/
+
+	/*fmt.Println(val, err)*/
 	/*	for i:=0;i<100;i++{
 		fmt.Println( utils.GetRandString(8))
 	}*/

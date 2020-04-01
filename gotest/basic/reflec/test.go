@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"reflect"
 	"strconv"
@@ -28,7 +29,7 @@ func main() {
 
 	var a *A
 	fmt.Println(reflect.ValueOf(a), reflect.TypeOf(a))
-
+	json.Marshal()
 	fmt.Println(parseSuffixNumber("qqqqqew12ds31231"))
 }
 
