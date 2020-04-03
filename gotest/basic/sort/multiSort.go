@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
-	"time"
 )
 
 func main() {
@@ -37,17 +36,17 @@ func main() {
 			Age:  24,
 		}, {
 			Id:   1,
-			Name: "xxl",
-			Age:  20,
+			Name: "wangwu",
+			Age:  21,
 		}, {
 			Id:   80,
-			Name: "lucy",
-			Age:  54,
+			Name: "lisi",
+			Age:  12,
 		},
 		{
 			Id:   80,
-			Name: "lucy",
-			Age:  5,
+			Name: "data",
+			Age:  90,
 		}, {
 			Id:   12,
 			Name: "judy",
@@ -56,10 +55,9 @@ func main() {
 	}
 	s := StudentList{}
 	s = stus
-	now := time.Now()
 	Sort(s, true, "Id", "Age")
 	fmt.Println(s)
-	fmt.Println(time.Since(now).Nanoseconds())
+
 }
 
 type StudentList []Stu
@@ -71,11 +69,17 @@ func (s StudentList) Len() int {
 // Less reports whether the element with
 // index i should sort before the element with index j.
 func (s StudentList) Less(i, j int) bool {
-	if s[i].Id > s[j].Id {
-		/*if s[i].Age < s[j].Age{
-			return  true
-		}*/return true
+	if s[i].Id != s[j].Id {
+		if s[i].Id > s[j].Id {
+			/*if s[i].Age < s[j].Age{
+				return  true
+			}*/return true
+		}
 	}
+	if s[i].Age > s[j].Age {
+		return true
+	}
+
 	return false
 }
 

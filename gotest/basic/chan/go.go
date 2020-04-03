@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -16,4 +17,5 @@ func main() {
 
 	time.Sleep(time.Second * 5)
 	fmt.Println("~~~")
+	os.Stat("")
 }
