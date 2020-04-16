@@ -52,9 +52,9 @@ func main() {
 
 	url := "http://grafana.maizuo.com/login"
 	method := "POST"
-
+	a := "{\"user\":\"jaden\",\"email\":\"\",\"password\":\"jaden123\"}"
 	payload := strings.NewReader("{\"user\":\"jaden\",\"email\":\"\",\"password\":\"jaden123\"}")
-
+	fmt.Println(a)
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, payload)
 
