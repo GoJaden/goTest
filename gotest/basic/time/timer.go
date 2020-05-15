@@ -7,24 +7,25 @@ import (
 )
 
 func main() {
-	aa := "1"
+	t := time.NewTicker(time.Second * 5)
+
+	for range t.C {
+		fmt.Println(strconv.Itoa(1) + "----")
+	}
+
+	/*aa := "1"
 	fmt.Println(aa[:len(aa)-1])
 
 	for i := 0; i < 100; i++ {
 		go func(i int) {
-			t := time.NewTimer(time.Second * 5)
-			select {
-			case <-t.C:
-				fmt.Println(strconv.Itoa(i) + "----")
 
-			}
 
 		}(i)
 	}
 	time.Sleep(time.Second * 10)
 	//var emptyStringIds []string = make([]string, 0)
 
-	fmt.Println(IsGreaterThanGiveTime(1577243476, 2))
+	fmt.Println(IsGreaterThanGiveTime(1577243476, 2))*/
 	/*fmt.Println(emptyStringIds)
 
 	fmt.Println(emptyStringIds == nil)*/

@@ -15,9 +15,9 @@ import (
 
 func main() {
 	req := ReqExamine{
-		ExaminePid: "TJWE1912031855243295",
+		ExaminePid: "TJW52004132215174343",
 		UId:        "12",
-		Token:      "ODZiMzBlYTgxYjc1YzY0NDQzYmQzMWUyMGUyODkyNmI=",
+		Token:      "ZmViNTg3ZjczYTlhYzQzNDYyMDA5NjQzYjFlZGNiZGY=",
 	}
 	s, err := md5Signer.SignUrlWithQuery("https://api.meinian365.com//Medical/ExamineOrderInfo", req)
 	if err != nil {
