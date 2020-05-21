@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 
@@ -12,4 +15,5 @@ func main() {
 		fmt.Println(i)
 	}
 	fmt.Println("结束了")
+	fmt.Fprintln(os.Stdout, "执行了程序")
 }
