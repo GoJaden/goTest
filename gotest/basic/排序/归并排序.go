@@ -23,9 +23,7 @@ func MergeSort(arr []int, left, right int) []int {
 		return arr
 	}
 
-	start := left
-	end := right
-	mid := (start + end) / 2
+	mid := (left + right) / 2
 	midIndex := mid
 	for left < mid && right > mid {
 		if arr[left] > arr[mid] {
@@ -36,7 +34,7 @@ func MergeSort(arr []int, left, right int) []int {
 		midIndex++
 	}
 	fmt.Println(arr)
-	arr = MergeSort(arr[left:mid], start, mid)
-	arr = MergeSort(arr[mid:], mid, end)
+	arr = MergeSort(arr[left:mid], left, mid)
+	arr = MergeSort(arr[mid:], mid, right)
 	return arr
 }
