@@ -9,10 +9,17 @@ import (
 func main() {
 	t := time.NewTicker(time.Second * 5)
 
-	for range t.C {
-		fmt.Println(strconv.Itoa(1) + "----")
-	}
+	for {
 
+		select {
+		case d := <-t.C:
+			{
+				fmt.Println(strconv.Itoa(1), d)
+
+			}
+
+		}
+	}
 	/*aa := "1"
 	fmt.Println(aa[:len(aa)-1])
 
