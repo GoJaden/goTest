@@ -1,7 +1,8 @@
 package utils
 
+/*
 import (
-	"common-lib/collection"
+	_ "common-lib/collection"
 	"reflect"
 )
 
@@ -38,3 +39,4 @@ func FilterSame(data interface{}, selector func(element interface{}) interface{}
 	})
 	hashSet.Foreach(f)
 }
+*/

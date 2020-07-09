@@ -1,9 +1,11 @@
 package utils
 
+/*
 import (
 	"errors"
 	"fmt"
 	"sdyxmall/business-examine/wrapper/page"
+	_ "sdyxmall/business-examine/wrapper/page"
 	"strings"
 )
 
@@ -45,3 +47,4 @@ func ConvertToSQLParams(sliceData interface{}, rawSqlParams []interface{}) (plac
 	params = rawSqlParams
 	return
 }
+*/
