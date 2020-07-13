@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+	"time"
+)
 
 type TreeNode1 struct {
 	Data  int
@@ -9,6 +13,11 @@ type TreeNode1 struct {
 }
 
 func main() {
+
+	fmt.Println(strings.Repeat("a", 2))
+
+	t := time.Time{}
+	fmt.Println(t)
 
 	r11 := &TreeNode1{
 		Data:  32,
