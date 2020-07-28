@@ -11,7 +11,6 @@ func main() {
 /**
 思想:将每个数组分成两部分,对应位置分别比较,交换位置
     递归遍历到长度为1,所有位置都进行了比较
-
 */
 func mergeSort(data []int) []int {
 	if len(data) <= 1 {

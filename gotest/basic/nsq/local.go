@@ -26,37 +26,22 @@ func testNSQ() {
 	waiter := sync.WaitGroup{}
 	waiter.Add(1)
 
+	defer waiter.Done()
+	config := nsq.NewConfig()
+	config.MaxInFlight = 9
 
-		defer waiter.Done()
-		config := nsq.NewConfig()
-		config.MaxInFlight = 9
+	consumer1, err := nsq.NewConsumer("jaden", "123", config)
+	if nil != err {
+		fmt.Println("err", err)
+		return
+	}
 
-
-			consumer, err := nsq.NewConsumer("test3", "123", config)
-			if nil != err {
-				fmt.Println("err", err)
-				return
-			}
-
-			consumer.AddHandler(&NSQHandler{})
-			err = consumer.ConnectToNSQD(url)
-			if nil != err {
-				fmt.Println("err", err)
-				return
-			}
-		consumer1, err := nsq.NewConsumer("test2", "123", config)
-		if nil != err {
-			fmt.Println("err", err)
-			return
-		}
-
-		consumer1.AddHandler(&NSQHandler{})
-		err = consumer1.ConnectToNSQD(url)
-		if nil != err {
-			fmt.Println("err", err)
-			return
-		}
-
+	err = consumer1.ConnectToNSQD(url)
+	if nil != err {
+		fmt.Println("err111", err)
+		return
+	}
+	consumer1.AddHandler(&NSQHandler{})
 
 	waiter.Wait()
 }
