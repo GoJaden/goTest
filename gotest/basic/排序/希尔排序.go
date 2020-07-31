@@ -19,14 +19,14 @@ func ShellSort(data []int) []int {
 	}
 
 	gap := len(data) / 2
-	for gap > 0 {
-		for rindex, rd := range data[gap:] {
-			if data[rindex] > rd {
-				data[rindex], data[rindex+gap] = data[rindex+gap], data[rindex]
-			}
+
+	for rindex, rd := range data[gap:] {
+		if data[rindex] > rd {
+			data[rindex], data[rindex+gap] = data[rindex+gap], data[rindex]
 		}
 	}
-	ShellSort(data[0:gap])
+	fmt.Println("++", data)
+	ShellSort(data[:gap])
 	ShellSort(data[gap:])
 	return data
 }
